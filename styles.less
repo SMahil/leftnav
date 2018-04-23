@@ -1,10 +1,8 @@
 
 .left-nav {
   height: 100%;
-  background-color: #393f44;
   .page-wrap {
 	  min-height: 100%;
-    background-color: #393f44;
 	  .navbar {
       position: relative;
       height: 70px;
@@ -59,12 +57,23 @@
             &.border-right {
               border-right: 1px solid #303030;
             }
+            input[type="search"] {
+              -webkit-appearance: textfield;
+              -webkit-box-sizing: content-box;
+              -moz-box-sizing: content-box;
+              box-sizing: content-box;
+            	display: none;
+            	height: 16px;
+            	width: 177px;
+            	margin-right: 10px;
+            	&:focus {
+            	  outline: none;
+            	  border-width: 1px;
+            	}
+            }
           }
         }
       }
-    }
-    .pficon-ok:before {
-      color: #303030;
     }
     .sidebar {
       display: block;
@@ -99,6 +108,7 @@
     }
     .page-inner {
       position: relative;
+      width: ~"calc(e('100% - 60px'))";
       height: 100vh;
       background-color: #fff; 
       overflow: hidden;
@@ -161,6 +171,13 @@
           }
         }
       }
+      .selectedSpaceDropdown {
+        padding: 15px 20px;
+        display: flex;
+        img {
+          margin-top: 10px;
+        }
+      }
     }
     .menu-1 {
       color: #fff;
@@ -172,26 +189,26 @@
     .secondary-menu {
       position: fixed;
       top:0;
-      left: 60px;
-      z-index: 2;
+      bottom: -10px;
+      left: -280px;
+      //z-index: 2;
       width: 280px;
-      height: 100%;
       background-color: #4d5258;
       list-style-type: none;
       padding: 0;
       color:#fff;
-      transition: all 0.3s;
       line-height: 1.5;
+      transition: all ease-out 0.3s;
       color: #fff;
       overflow: scroll;
-      display: none;
+      opacity: 0;
       li {
         border-top-color: #303030;
         &:first-child {
           border: 0;
         }
         a {
-          font-size: 14px;
+          font-size: 15px;
           text-align: left;
           color: white;
           &:hover {
@@ -201,6 +218,35 @@
         }
       }
     }   
+    .expanded {
+      left: 60px; 
+      transition: all ease-in 0.3s;
+      opacity: 1;
+    }
+    .tab-menu {
+      left: 60px;
+      opacity: 1;
+      height: 100%;
+      transition: all ease-in 0.3s;
+      &-expanded {
+        left: 60px;
+        opacity: 1;
+        transition: all ease-in 0.3s;
+      }
+    }
+    .list-combo {
+      padding: 15px;
+      .form-control {
+        border:none;
+        border-radius: 0px;
+        height: 36px;
+        color: #fff;
+        background-color: #333333;
+        &:focus {
+          box-shadow: 0 0 3px -1px inset #000000;
+        }
+      }
+    }
   }
 }
 
@@ -256,12 +302,18 @@
 }
 @media all and (max-width: 768px) {
   .left-nav {
-    .page-wrap {  
-      .secondary-menu {
-        left: 0; 
-        display: none;
+    .page-wrap {   
+      .expanded {
+        left: 0px; 
+        opacity: 1;
+        transition: all ease-in 0.3s;
       }
-    }
+      .togglePanel {
+        left: -280px; 
+        opacity: 0;
+        transition: all ease-in 0.3s;
+      }
+    } 
   }
   .inner-menu , .inner-menu-2 {
     width: 100%;
@@ -283,4 +335,45 @@
 }
 .border-0 {
   border-top-color: transparent !important;
+}
+//dropdown animations
+
+.open > .dropdown-menu {
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);  
+  
+}
+.open > .dropdown-menu li a {
+  color: #000;  
+}
+.dropdown-menu li a{
+  color: #fff;
+}
+.dropdown-menu {
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-animation-fill-mode: forwards;  
+  animation-fill-mode: forwards; 
+  -webkit-transform: scale(1, 0);
+  display: block;
+  
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+}
+.dropup .dropdown-menu {
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;  
+}
+
+.dropup > .dropdown-menu:after {
+  border-bottom: 0;
+  border-top: 6px solid rgba(39, 45, 51, 0.9);
+  top: auto;
+  display: inline-block;
+  bottom: -6px;
+  content: '';
+  position: absolute;
+  left: 50%;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
 }

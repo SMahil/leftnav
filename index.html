@@ -4,12 +4,11 @@
     <meta charset="UTf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Left Hand Navigation</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.41.0/css/patternfly.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.41.0/css/patternfly-additions.min.css" rel="stylesheet" />
+    <link href="http://www.patternfly.org/components/patternfly/dist/css/patternfly.min.css" rel="stylesheet" />
+    <link href="http://www.patternfly.org/components/patternfly/dist/css/patternfly-additions.min.css" rel="stylesheet" />
+    <link href="http://www.patternfly.org/components/patternfly/dist/css/patternfly-site.less" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
       .fa.fa-close{
@@ -24,7 +23,7 @@
           <div class="dashboard-icon">
             <span class="pficon pficon-home hidden-xs dashboard-icon-1"></span>
             <span class="fa fa-bars hidden-sm hidden-md hidden-lg dashboard-icon-2"></span>
-            <ul class="secondary-menu space-dropdown-menu">
+            <ul class="secondary-menu space-dropdown-menu" id="main-menu">
               <li class="space-dropdown-menu-item">
                 <a>
                   <div class="user-dropdown__user-icon user-avatar-icon pull-left">
@@ -35,7 +34,7 @@
                   <div class="" style="padding-left:30px; padding-right:10px;">
                     <span class="padding-left-10">USERNAME</span>
                     <p class="margin-0" style="word-break: break-all;">
-                      email@address.comemail@address.com
+                      email@address.com
                     </p>
                   </div>
                 </a>
@@ -357,13 +356,13 @@
               <!-- My workitems -->
               <li class="space-dropdown-menu-item click-inner-menu">
                 <a class="hidden-sm hidden-md hidden-lg" id="clickWorkitem">
-                  <p class="dib margin-0">My WorkItems</p>
+                  <p class="dib margin-0">My Work Items</p>
                   <span class="pull-right hidden-sm hidden-md hidden-lg">
                     <span class="fa fa-angle-right"></span>
                   </span>
                 </a>
                 <a class="hidden-xs">
-                  <p class="dib margin-0">My WorkItems</p>
+                  <p class="dib margin-0">My Work Items</p>
                 </a>
                 <div class="inner-menu">
                   <ul class="space-dropdown-menu-list border-0 margin-bottom-10">
@@ -372,7 +371,7 @@
                         <span class="pull-left">
                           <span class="fa fa-angle-left"></span>
                         </span>
-                        <p class="dib margin-0">My WorkItems</p>
+                        <p class="dib margin-0">My Work Items</p>
                         <span class="pull-right" id="closeSecMenu">
                           <span class="fa fa-close"></span>
                         </span>
@@ -407,6 +406,13 @@
                           </li>
                           <li class="space-dropdown-menu-item">
                             <ul class="space-dropdown-menu-list margin-top-10 margin-bottom-10 border-0">
+                              <li class="list-combo">
+                                <select class="combobox form-control">
+                                  <option>Select a space</option>
+                                  <option value="S1">Space 1</option>
+                                  <option value="s2">Space 2</option>
+                                </select>
+                              </li>
                               <li class="space-dropdown-menu-list-item">
                                 <a>
                                   <i class="dib pficon pficon-resources-almost-full margin-left-10"></i>
@@ -532,11 +538,11 @@
                           <div class="user-dropdown__user-icon user-avatar-icon">
               							<img class="icon-user"
               							  src="https://www.gravatar.com/avatar/98669ddf430e4036c17d8fd5acff84f5.jpg" />
-              							</div>
-              							<div class="dib">
-              							  <span class="padding-left-10">crobson</span>
-              							  <p class="margin-0"><strong>osioux_space</strong></p>
-              							</div> 
+              						</div>
+            							<div class="dib">
+            							  <span class="padding-left-10">crobson</span>
+            							  <p class="margin-0"><strong>osioux_space</strong></p>
+            							</div> 
                         </a>
                       </li>
                       <li class="space-dropdown-menu-list-item">
@@ -575,15 +581,29 @@
                   </li>
                 </ul>
               </li>
+              <li class="dropdown space-dropdown" id="showSelectedSpace" style="display: none;">
+                <!-- selected space -->
+                <a class="dropdown-toggle selectedSpaceDropdown" data-toggle="dropdown">
+                  <div class="user-dropdown__user-icon user-avatar-icon">
+                    <img class="icon-user"
+                      src="https://www.gravatar.com/avatar/98669ddf430e4036c17d8fd5acff84f5.jpg" />
+                  </div>
+                  <div class="dib">
+                    <span class="padding-left-10">crobson</span>
+                    <p class="margin-0 padding-left-10"><strong>osioux_space</strong></p>
+                  </div> 
+                </a>
+              </li>
             </ul>
             <ul class="nav navbar-nav navbar-right margin-0">
               <li class="border-right">
                 <a>
-                  <i class="pficon pficon-ok"></i>
+                  <i class="fa fa-bell"></i>
                 </a>
               </li>
               <li>  
-                <a class="">
+                <input type="search" id="search" placeholder="Search">
+                <a id="btn-search" style="display: inline-block;">
                   <i class="fa fa-search"></i>
                 </a>
               </li>
@@ -596,7 +616,7 @@
           <!-- sidebar tab 1-->
           <div class="menu-1 hide" data-menuId="1">
             <span class="fa fa-dashboard"></span>
-            <ul class="secondary-menu space-dropdown-menu">
+            <ul class="secondary-menu space-dropdown-menu tab-menu">
               <li class="space-dropdown-menu-item">
                 <ul class="space-dropdown-menu-list">
                   <li class="space-dropdown-menu-list-item">
@@ -641,7 +661,7 @@
           <!-- sidebar tab 2 -->
           <div class="menu-1 hide" data-menuId="2">
             <span class="fa fa-table"></span>
-            <ul class="secondary-menu space-dropdown-menu">
+            <ul class="secondary-menu space-dropdown-menu tab-menu">
               <li class="space-dropdown-menu-item">
                 <ul class="space-dropdown-menu-list">
                   <li class="space-dropdown-menu-list-item">
@@ -689,7 +709,7 @@
           <!-- sidebar tab 3-->
           <div class="menu-1 hide" data-menuId="3">
             <span class="pficon pficon-add-circle-o"></span>
-            <ul class="secondary-menu space-dropdown-menu">
+            <ul class="secondary-menu space-dropdown-menu tab-menu">
               <li class="space-dropdown-menu-item">
                 <ul class="space-dropdown-menu-list">
                   <li class="space-dropdown-menu-list-item">
@@ -746,6 +766,9 @@
       </div>
     </main>
   </body>
+  <script type = "text/javascript" 
+     src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+  </script>
   <script>
     $(window).on('resize', function(){
       var $containerWidth = $(window).width();
@@ -758,9 +781,6 @@
         });
       }
       if ($containerWidth <= 767) {
-        $('.secondary-menu').css({
-          display: 'none'
-        });
         $('.inner-menu').css({
           left: '-280px'
         });
@@ -771,13 +791,18 @@
     });
     $(document).ready(function(){
       $('.dashboard-icon-1').click(function(){
-        $('.secondary-menu').toggle();
+        $('#main-menu').toggleClass('expanded');
+        $('#main-menu').removeClass("togglePanel");
+        $('.secondary-menu.tab-menu').hide();
       });
       $('.dashboard-icon-2').click(function(){
-        $('.secondary-menu').toggle();
+        $('#main-menu').toggleClass('expanded');
+        $('#main-menu').removeClass("togglePanel");
       });
+
       $('#hideLeftNav').click(function(){
-        $('.secondary-menu').hide();
+        $('#main-menu').addClass("togglePanel");
+        $('#main-menu').removeClass('expanded');
       });
       $('#clickWorkitem').click(function(){
         $('.inner-menu').animate({
@@ -792,12 +817,17 @@
       });
       $('.closeMenu').click(function(){
         var innerMenuId = $(this).attr("data-closeId");
+        console.log(innerMenuId);
         $('.inner-menu-2[data-innerMenu="'+innerMenuId+'"]').animate({
           left: '-280px'
         },10);
       });
       $('#selectedSpace').click(function(){
         $('.menu-1').toggleClass('show');
+        $('.menu-1').toggleClass('hide');
+        $('#showSelectedSpace').show();
+        $('#space-dropdown-menu1').hide();
+
       });
       $('.menu-1').click(function(){
         $('.menu-1 .secondary-menu').hide();
@@ -815,6 +845,10 @@
         $('.openSpaceList[data-spaceId="'+spaceId+'"] ~ .spaceInnerList').animate({
           left: '0'
         },10);
+      });
+      $('#btn-search').click(function(e) {
+        e.preventDefault();
+        $('#search').animate({width: 'toggle'}).focus();
       });
     });
   </script>
