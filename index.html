@@ -12,18 +12,13 @@
     <link href="styles.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-      .fa.fa-close{
-        z-index: 9999;
-      }
-    </style>
   </head>
   <body class="left-nav">
     <main class="page-wrap">
       <div class="navbar margin-0">
         <div class="navbar-inner">
           <div class="dashboard-icon">
-            <span class="fa fa-home hidden-xs dashboard-icon-1"></span>
+            <span class="pficon pficon-home hidden-xs dashboard-icon-1"></span>
             <span class="fa fa-bars hidden-sm hidden-md hidden-lg dashboard-icon-2"></span>
             <ul class="secondary-menu space-dropdown-menu" id="main-menu">
               <li class="space-dropdown-menu-item">
@@ -69,7 +64,7 @@
                     <li class="space-dropdown-menu-item">
                       <a>
                         <span class="pull-left">
-                          <i class="fa fa-plus-circle"></i>
+                          <i class="pficon pficon-add-circle-o"></i>
                         </span>
                         <p class="dib margin-0">Create Space</p>
                       </a>
@@ -166,7 +161,7 @@
                               </li>
                               <li class="space-dropdown-menu-item">
         				                <a>
-        				                  <span class="fa fa-plus-circle hidden-sm hidden-md"></span>
+        				                  <span class="pficon pficon-add-circle-o hidden-sm hidden-md"></span>
         				                  <p class="dib margin-0">Create</p>
         				                </a>
         				                <ul class="space-dropdown-menu-list">
@@ -323,7 +318,7 @@
                                 <a>
                                   <p class="dib margin-0">Create</p>
                                   <span class="pull-left">
-                                    <span class="fa fa-plus-circle"></span>
+                                    <span class="pficon pficon-add-circle-o"></span>
                                   </span>
                                 </a>
                               </li>
@@ -527,7 +522,7 @@
                   <li class="space-dropdown-menu-item">
                     <a>
                       <span class="pull-left">
-                        <i class="fa fa-plus-circle"></i>
+                        <i class="pficon pficon-add-circle-o"></i>
                       </span>
                       <p class="dib margin-0">Create Space</p>
                     </a>
@@ -614,10 +609,169 @@
         </div>
       </div>
       <div class="page-sidebar sidebar hidden-xs">
-        <nav class="sidebar-menu">
-          <!-- sidebar tab 1-->
-          <div class="menu-1 hide" data-menuId="1">
+        <nav class="sidebar-nav">
+          <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked>
+          <label for="tab-1" class="tab-label-1">
             <span class="fa fa-dashboard"></span>
+          </label>
+          <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
+          <label for="tab-2" class="tab-label-2">
+            <span class="fa fa-dashboard"></span>
+          </label>
+          <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3">
+          <label for="tab-3" class="tab-label-3">
+            <span class="fa fa-dashboard"></span>
+          </label>
+          <div class="tab-content">
+            <!--tab content 1-->
+            <div class="tab-content-1" data-contentId="1">
+              <ul class="tab-menu">
+                <li class="space-dropdown-menu-item">
+                  <ul class="space-dropdown-menu-list">
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <div class="user-dropdown__user-icon user-avatar-icon">
+                          <img class="icon-user"
+                            src="https://www.gravatar.com/avatar/98669ddf430e4036c17d8fd5acff84f5.jpg" />
+                        </div>
+                        <div class="dib">
+                          <span class="padding-left-10">crobson</span>
+                          <p class="margin-0"><strong>osioux_space</strong></p>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="space-dropdown-menu-item">
+                  <a>
+                    <span class="fa fa-dashboard hidden-sm hidden-md"></span>
+                    <p class="dib margin-0">Analyze</p>
+                  </a>
+                  <ul class="space-dropdown-menu-list">
+                    <li class="tab-menu-list-item">
+                      <a>
+                        <p class="margin-0">Dashboard</p>
+                      </a>
+                    </li>
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <p class="margin-0">Code Analytics</p>
+                      </a>
+                    </li>
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <p class="margin-0">Report Details</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <!--tab content 2-->
+            <div class="tab-content-2" data-contentId="2">
+              <ul class="tab-menu">
+                <li class="space-dropdown-menu-item">
+                  <ul class="space-dropdown-menu-list">
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <div class="user-dropdown__user-icon user-avatar-icon">
+                          <img class="icon-user"
+                            src="https://www.gravatar.com/avatar/98669ddf430e4036c17d8fd5acff84f5.jpg" />
+                        </div>
+                        <div class="dib">
+                          <span class="padding-left-10">crobson</span>
+                          <p class="margin-0"><strong>osioux_space</strong></p>
+                        </div>
+                        <div class="pull-right padding-top-10">
+                          <i class="fa fa-cog"></i>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="space-dropdown-menu-item">
+                  <a>
+                    <span class="fa fa-table hidden-sm- hidden-md"></span>
+                    <p class="dib margin-0">Plan</p>
+                  </a>
+                  <ul class="space-dropdown-menu-list">
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <p class="margin-0">Backlog</p>
+                      </a>
+                    </li>
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <p class="margin-0">Board</p>
+                      </a>
+                    </li>
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <p class="margin-0">Feedback</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <!--tab content 3-->
+            <div class="tab-content-3" data-contentId="3">
+              <ul class="tab-menu">
+                <li class="space-dropdown-menu-item">
+                  <ul class="space-dropdown-menu-list">
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <div class="user-dropdown__user-icon user-avatar-icon">
+                          <img class="icon-user"
+                            src="https://www.gravatar.com/avatar/98669ddf430e4036c17d8fd5acff84f5.jpg" />
+                        </div>
+                        <div class="dib">
+                          <span class="padding-left-10">crobson</span>
+                          <p class="margin-0"><strong>osioux_space</strong></p>
+                        </div> 
+                        <div class="pull-right padding-top-10">
+                          <i class="fa fa-cog"></i>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="space-dropdown-menu-item">
+                  <a>
+                    <span class="pficon pficon-add-circle-o hidden-sm hidden-md"></span>
+                    <p class="dib margin-0">Create</p>
+                  </a>
+                  <ul class="space-dropdown-menu-list">
+                    <li>
+                      <a>
+                        <p class="margin-0">Codebases</p>
+                      </a>
+                    </li>
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <p class="margin-0">Workspaces</p>
+                      </a>
+                    </li>
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <p class="margin-0">Pipelines</p>
+                      </a>
+                    </li>
+                    <li class="space-dropdown-menu-list-item">
+                      <a>
+                        <p class="margin-0">Deployments</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- <nav class="sidebar-menu"> -->
+          <!-- sidebar tab 1-->
+          <!-- <div class="menu-1 hide" data-menuId="1">
+            
             <ul class="secondary-menu space-dropdown-menu tab-menu">
               <li class="space-dropdown-menu-item">
                 <ul class="space-dropdown-menu-list">
@@ -659,9 +813,9 @@
                 </ul>
               </li>
             </ul>
-          </div>
+          </div> -->
           <!-- sidebar tab 2 -->
-          <div class="menu-1 hide" data-menuId="2">
+          <!-- <div class="menu-1 hide" data-menuId="2">
             <span class="fa fa-table"></span>
             <ul class="secondary-menu space-dropdown-menu tab-menu">
               <li class="space-dropdown-menu-item">
@@ -707,10 +861,10 @@
                 </ul>
               </li>
             </ul>
-          </div>
+          </div> -->
           <!-- sidebar tab 3-->
-          <div class="menu-1 hide" data-menuId="3">
-            <span class="fa fa-plus-circle"></span>
+          <!-- <div class="menu-1 hide" data-menuId="3">
+            <span class="pficon pficon-add-circle-o"></span>
             <ul class="secondary-menu space-dropdown-menu tab-menu">
               <li class="space-dropdown-menu-item">
                 <ul class="space-dropdown-menu-list">
@@ -733,7 +887,7 @@
               </li>
               <li class="space-dropdown-menu-item">
                 <a>
-                  <span class="fa fa-plus-circle hidden-sm hidden-md"></span>
+                  <span class="pficon pficon-add-circle-o hidden-sm hidden-md"></span>
                   <p class="dib margin-0">Create</p>
                 </a>
                 <ul class="space-dropdown-menu-list">
@@ -760,8 +914,8 @@
                 </ul>
               </li>
             </ul>
-          </div>
-        </nav>
+          </div> -->
+        <!-- </nav> -->
       </div>
       <div class="page-inner">
        data
@@ -796,6 +950,9 @@
         $('#main-menu').toggleClass('expanded');
         $('#main-menu').removeClass("togglePanel");
         $('.secondary-menu.tab-menu').hide();
+        $('.tab-content').animate({
+          left: '-250px'
+        }, 500);
       });
       $('.dashboard-icon-2').click(function(){
         $('#main-menu').toggleClass('expanded');
@@ -825,23 +982,15 @@
         },10);
       });
       $('#selectedSpace').click(function(){
-        $('.menu-1').toggleClass('show');
-        $('.menu-1').toggleClass('hide');
-        $('#showSelectedSpace').show();
-        $('#space-dropdown-menu1').hide();
-
-      });
-      $('.menu-1').click(function(){
-        $('.menu-1 .secondary-menu').hide();
-        var menuId = $(this).attr("data-menuId");
-        $('.menu-1[data-menuId="'+menuId+'"] .secondary-menu').show();
+        $('.tab-content').animate({
+          left: '60px'
+        }, 500);
       });
       $('#clickSpace').click(function(){
         $('.inner-menu.spaceList').animate({
           left: '0'
         },10);
       });
-
       $('.openSpaceList').click(function(){
         var spaceId = $(this).attr("data-spaceId");
         $('.openSpaceList[data-spaceId="'+spaceId+'"] ~ .spaceInnerList').animate({
@@ -852,6 +1001,10 @@
         e.preventDefault();
         $('#search').animate({width: 'toggle'}).focus();
       });
+      function ChangeOpacity(opacity) {
+        var opDiv = document.getElementsByClassName("colorDiv")[0];
+        opDiv.style.backgroundColor = color;
+      }
     });
   </script>
 </html>
